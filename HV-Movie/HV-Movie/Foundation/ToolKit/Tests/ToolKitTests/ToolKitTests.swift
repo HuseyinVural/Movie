@@ -1,12 +1,42 @@
 import XCTest
 @testable import ToolKit
 
-final class ToolKitTests: XCTestCase {
-    func testExample() throws {
-        // XCTest Documentation
-        // https://developer.apple.com/documentation/xctest
+final class DependencyContainerTests: XCTestCase {
+    var sut: DependencyContainerProtocol!
 
-        // Defining Test Cases and Test Methods
-        // https://developer.apple.com/documentation/xctest/defining_test_cases_and_test_methods
+    override func setUp() {
+        super.setUp()
+        sut = DependencyContainer()
+    }
+
+    override func tearDown() {
+        sut = nil
+        super.tearDown()
+    }
+
+    func testRegisterAndResolve_ShouldReturnCorrectInstance() {
+        // Arrange
+        let mockService = MockService()
+
+        // Act
+        sut.register(MockServiceProtocol.self, instance: mockService)
+        let resolvedService: MockServiceProtocol = sut.resolve(MockServiceProtocol.self)
+
+        // Assert
+        XCTAssertEqual(resolvedService.doSomething(), "MockService did something")
+    }
+
+    func testRegister_ShouldOverwritePreviousRegistration() {
+        // Arrange
+        let mockService = MockService()
+        let anotherMockService = AnotherMockService()
+
+        // Act
+        sut.register(MockServiceProtocol.self, instance: mockService)
+        sut.register(MockServiceProtocol.self, instance: anotherMockService)
+        let resolvedService: MockServiceProtocol = sut.resolve(MockServiceProtocol.self)
+
+        // Assert
+        XCTAssertEqual(resolvedService.doSomething(), "AnotherMockService did something")
     }
 }

@@ -7,6 +7,9 @@
 
 import Foundation
 
+/// An enum representing different environments (development and production) for API calls.
+/// The `prod` case is intentionally left unimplemented for future expansion.
+/// This enum is designed to be extended for selecting platforms and base API endpoints within the application.
 public enum Environments {
     case dev
     case prod
