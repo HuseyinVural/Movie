@@ -1,0 +1,114 @@
+# Xcode
+#
+build/
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+*.xcuserstate
+
+# Swift Package Manager
+#
+.build/
+.swiftpm/xcode/package.xcworkspace/xcuserdata/
+
+# Xcode Specific
+#
+xcuserdata/
+*.xcscmblueprint
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/xcschemes
+!*.xcodeproj/xcshareddata/xcschemes/*
+!*.xcodeproj/xcshareddata/xcschemes/xcscheme
+!*.xcodeproj/project.xcworkspace/xcuserdata/
+!*.xcodeproj/project.xcworkspace/xcuserdata/*
+
+# CocoaPods
+#
+Pods/
+Podfile.lock
+*.xcworkspace
+
+# Carthage
+#
+Carthage/Build/
+Carthage/Checkouts/
+
+# Fastlane
+#
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+fastlane/test_output/**/*
+
+# Archives
+#
+*.xcarchive
+
+# App Specific
+#
+*.log
+*.swp
+*.lock
+
+# Swift Playgrounds
+#
+timeline.xctimeline
+playground.xcworkspace
+
+# User-Generated Files
+#
+*.moved-aside
+*.xcuserdatad
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+!default.mode1v3
+!default.mode2v3
+!default.perspectivev3
+
+# Other
+#
+*.rsrc
+.DS_Store
+*.pbxuser
+*.xccheckout
+*.xcsettings
+*.ideworkspace
+*.xcuserstate
+*.xcodeproj
+*.xcworkspace
+!default.xcworkspace
+
+# Objective-C/Objective-C++
+#
+*.moved-aside
+*.nib~
+*.c++
+*.c++
+*.pch++
+*.cpp++
+
+# Build Products
+#
+*.app
+*.app.dSYM
+*.dSYM
+*.dSYM.zip
+*.ipa
+
+# Swift Package Manager
+#
+Package.pins
+.build/
+.xcconfig
+.xcscmblueprint
+
+# Xcode
+#
+*.xcodeproj
+*.xcworkspace
+xcuserdata/
