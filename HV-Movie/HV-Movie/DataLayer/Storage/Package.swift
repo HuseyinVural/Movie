@@ -11,14 +11,19 @@ let package = Package(
         .library(
             name: "Storage",
             targets: ["Storage"]),
+        .library(
+            name: "StorageInterface",
+            targets: ["StorageInterface"]),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "Storage"),
+            name: "Storage", dependencies: ["StorageInterface"]),
         .testTarget(
             name: "StorageTests",
-            dependencies: ["Storage"]),
+            dependencies: ["Storage", "StorageInterface"]),
+        .target(
+            name: "StorageInterface"),
     ]
 )
