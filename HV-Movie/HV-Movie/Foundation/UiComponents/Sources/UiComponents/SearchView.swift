@@ -7,6 +7,7 @@
 
 import UIKit
 import StyleKit
+import LocalizationKit
 
 class SearchView: XibView {
     @IBOutlet public weak var searchTextField: UITextField!
@@ -26,8 +27,8 @@ class SearchView: XibView {
     
     private func applyDefaultStyle() {
         backgroundColor = .clear
-        searchTextField.text = ""
-        setAttributedPlaceholder("", color: DesignColors.focus.withAlphaComponent(0.5))
+        searchTextField.text = Texts.Search.placeholder.localized
+        setAttributedPlaceholder(Texts.Search.placeholder.localized, color: DesignColors.focus.withAlphaComponent(0.5))
         searchTextField.font = DesignTypography.body(weight: .medium)
     }
 }
