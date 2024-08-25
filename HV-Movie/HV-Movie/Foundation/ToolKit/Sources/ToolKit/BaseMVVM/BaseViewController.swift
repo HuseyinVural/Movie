@@ -52,6 +52,8 @@ open class BaseXibViewController<VM: BaseViewModelable>: UIViewController {
             #warning("Add Loading")
         case .error(let message):
             #warning("Add Error Presentation")
+        case .closeKeyboard:
+            view.endEditing(true)
         }
     }
 }

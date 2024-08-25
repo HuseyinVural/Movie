@@ -10,4 +10,5 @@ import Foundation
 public enum CommonActions {
     case loading(isHidden: Bool = true)
     case error(String)
+    case closeKeyboard
 }
