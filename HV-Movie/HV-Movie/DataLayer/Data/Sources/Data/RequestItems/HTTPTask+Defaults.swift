@@ -12,7 +12,7 @@ import ToolKit
 
 extension HTTPTask {
     var baseURL: URL {
-        return envManager.current.apiURL(.v3)
+        return DependencyContainer.shared.resolve(EnvManageable.self).current.apiURL(.v3)
     }
     
     /// I am not adding more here as there is no language switching option at the moment. I have added it to be open for expansion.

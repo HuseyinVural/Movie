@@ -7,8 +7,6 @@
 
 import Foundation
 
-public var envManager: EnvManageable = EnvManager()
-
 public protocol EnvManageable {
     var current: Environments { get }
     func setCurrentEnv(_ env: Environments)
@@ -16,6 +14,10 @@ public protocol EnvManageable {
 
 public class EnvManager: EnvManageable {
     public var current: Environments = .dev
+    
+    public init(current: Environments = .dev) {
+        self.current = current
+    }
     
     public func setCurrentEnv(_ env: Environments) {
         current = env

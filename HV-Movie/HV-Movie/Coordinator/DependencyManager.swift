@@ -24,11 +24,16 @@ final class DependencyManager {
     }
 
     func registerDependencies() {
+        registerEnv()
         registerNetworkService()
         registerKeyValueStorage()
         registerRepositoryContainer()
     }
 
+    private func registerEnv() {
+        container.register(EnvManageable.self, instance: EnvManager(current: .dev))
+    }
+    
     private func registerNetworkService() {
         container.register(NetworkProviderInterface.self, instance: NetworkProvider())
     }
