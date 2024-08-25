@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  
+
+  Created by Huseyin Vural on 25.08.2024.
+  
+*/
+
+"error.message" = "Something went wrong";
+"loading.message" = "Loading...";
