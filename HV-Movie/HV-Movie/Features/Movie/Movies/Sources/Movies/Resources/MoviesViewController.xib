@@ -26,7 +26,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Sgt-Jl-dYa">
-                            <rect key="frame" x="0.0" y="86" width="393" height="732"/>
+                            <rect key="frame" x="0.0" y="86" width="393" height="766"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="tintColor" name="PositiveColor"/>
                             <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -68,7 +68,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="yfw-j0-bq5" secondAttribute="top" constant="-10" id="JZY-66-oFb"/>
                 <constraint firstItem="KBY-RJ-7nl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Kb0-RU-C6C"/>
                 <constraint firstAttribute="bottom" secondItem="KBY-RJ-7nl" secondAttribute="bottom" id="VFe-3O-qxh"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Sgt-Jl-dYa" secondAttribute="bottom" id="b34-x9-fHo"/>
+                <constraint firstItem="KBY-RJ-7nl" firstAttribute="bottom" secondItem="Sgt-Jl-dYa" secondAttribute="bottom" id="b34-x9-fHo"/>
                 <constraint firstItem="KBY-RJ-7nl" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="e6m-Fy-3vr"/>
                 <constraint firstItem="Sgt-Jl-dYa" firstAttribute="top" secondItem="GkE-X5-zsH" secondAttribute="bottom" constant="-40" id="oMl-kK-d9Y"/>
             </constraints>

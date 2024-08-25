@@ -9,7 +9,7 @@ import UIKit
 import ToolKit
 import UiComponents
 
-final class MoviesViewController<VM: MoviesViewModelable>: BaseXibViewController<VM> {
+final class MoviesViewController<VM: MoviesViewModelable>: BaseXibViewController<VM>, UITextFieldDelegate {
     @IBOutlet private weak var list: UITableView!
     @IBOutlet private weak var searchView: SearchView!
     
@@ -31,9 +31,26 @@ final class MoviesViewController<VM: MoviesViewModelable>: BaseXibViewController
                 list.register(cellType: MovieTableViewCell.self, bundle: .module)
                 list.dataSource = handler
                 list.delegate = handler
+                
+                searchView.searchTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+                searchView.searchTextField.delegate = self
             case .reload:
                 list.reloadData()
             }
         }
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        viewModel.didChangeSearchText(textField.text ?? "")
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        viewModel.didTapSearchDone()
+        return true
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        viewModel.didSearchClear()
+        return true
     }
 }

@@ -15,7 +15,11 @@ enum MoviesPageActions {
     case reload
 }
 
-protocol MoviesViewModelable: BaseViewModelable, ActionSendable where ActionType == MoviesPageActions {}
+protocol MoviesViewModelable: BaseViewModelable, ActionSendable where ActionType == MoviesPageActions {
+    func didChangeSearchText(_ key: String)
+    func didSearchClear()
+    func didTapSearchDone()
+}
 
 final class MoviesViewModel: BaseViewModel, MoviesViewModelable {
     typealias ActionType = MoviesPageActions
@@ -47,6 +51,20 @@ final class MoviesViewModel: BaseViewModel, MoviesViewModelable {
         sendAction(.reload)
         sendAction(.loading(isHidden: false))
         fetchData()
+    }
+    
+    func didChangeSearchText(_ key: String) {
+        listHandler.store.filter(by: key)
+        listHandler.store.isFilterEnable = !key.isEmpty
+        sendAction(.reload)
+    }
+    
+    func didSearchClear() {
+        disableSearchFilter()
+    }
+    
+    func didTapSearchDone() {
+        sendAction(.closeKeyboard)
     }
     
     func fetchData(page: Int = 1) {
@@ -84,7 +102,12 @@ final class MoviesViewModel: BaseViewModel, MoviesViewModelable {
     
     private func shouldLoadNextPage(at indexPath: IndexPath) -> Bool {
         let itemCount = listHandler.store.getMovies().count
-        return indexPath.row == itemCount - 5 && page.hasMorePages && !isLoading
+        return indexPath.row == itemCount - 5 && page.hasMorePages && !isLoading && !listHandler.store.isFilterEnable
+    }
+    
+    private func disableSearchFilter() {
+        listHandler.store.isFilterEnable = false
+        sendAction(.reload)
     }
 }
 
@@ -103,6 +126,6 @@ extension MoviesViewModel: MovieListManageable {
             return
         }
         
-        #warning("Add detail action")
+        coordinator?.showMovieDetail(asset: movie.id)
     }
 }

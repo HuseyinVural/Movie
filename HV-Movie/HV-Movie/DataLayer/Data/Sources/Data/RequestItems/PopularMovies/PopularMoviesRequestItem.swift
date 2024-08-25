@@ -24,6 +24,12 @@ public struct PopularMoviesResponseItem: Decodable {
     public let page: Int
     public let totalPages: Int
     public let results: [MovieResponseItem]
+    
+    public init(page: Int, totalPages: Int, results: [MovieResponseItem]) {
+        self.page = page
+        self.totalPages = totalPages
+        self.results = results
+    }
 }
 
 public struct MovieResponseItem: Decodable {
@@ -33,4 +39,13 @@ public struct MovieResponseItem: Decodable {
     public let overview: String
     public let releaseDate: String
     public let voteAverage: Double
+    
+    public init(id: Int, posterPath: String, title: String, overview: String, releaseDate: String, voteAverage: Double) {
+        self.id = id
+        self.posterPath = posterPath
+        self.title = title
+        self.overview = overview
+        self.releaseDate = releaseDate
+        self.voteAverage = voteAverage
+    }
 }
