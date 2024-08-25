@@ -26,15 +26,16 @@
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sCY-tI-20H" userLabel="SearchBar">
                             <rect key="frame" x="0.0" y="0.0" width="325" height="61"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text.magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FkT-Za-d9F">
-                                    <rect key="frame" x="15.999999999999998" y="12.666666666666664" width="20.333333333333329" height="36.333333333333336"/>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifier" translatesAutoresizingMaskIntoConstraints="NO" id="FkT-Za-d9F">
+                                    <rect key="frame" x="16" y="11.666666666666664" width="25" height="38"/>
                                     <color key="tintColor" name="FocusColor"/>
                                     <constraints>
+                                        <constraint firstAttribute="width" constant="25" id="rdB-Ay-E3I"/>
                                         <constraint firstAttribute="height" constant="38" id="zXH-vh-VwK"/>
                                     </constraints>
                                 </imageView>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Search Smth" placeholder="Type" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="llb-Ul-RAD">
-                                    <rect key="frame" x="52.333333333333343" y="22.666666666666668" width="256.66666666666663" height="16.000000000000004"/>
+                                    <rect key="frame" x="57" y="22.666666666666668" width="252" height="16.000000000000004"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="tintColor" name="FocusColor"/>
                                     <color key="textColor" name="FocusColor"/>
@@ -80,7 +81,7 @@
         </view>
     </objects>
     <resources>
-        <image name="text.magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="magnifier" width="85.333335876464844" height="85.333335876464844"/>
         <namedColor name="FocusColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

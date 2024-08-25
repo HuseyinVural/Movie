@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InfoBobbleView" customModule="UiComponents">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="0wH-bJ-BXy"/>
+                <outlet property="icon" destination="xUE-30-wch" id="7On-Wj-pUM"/>
+                <outlet property="title" destination="TmQ-xr-nej" id="45i-St-Z7u"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="68" height="27"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GXz-PP-90F">
+                    <rect key="frame" x="0.0" y="0.0" width="68" height="27"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="badge" translatesAutoresizingMaskIntoConstraints="NO" id="xUE-30-wch">
+                            <rect key="frame" x="6" y="6" width="16.666666666666668" height="15"/>
+                            <color key="tintColor" name="HighlightColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="xUE-30-wch" secondAttribute="height" multiplier="28:25" id="QFZ-Em-5Fy"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9.8" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TmQ-xr-nej">
+                            <rect key="frame" x="24.666666666666668" y="2" width="37.333333333333329" height="23"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                            <color key="textColor" name="TextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" name="SecondaryColor"/>
+                    <constraints>
+                        <constraint firstItem="TmQ-xr-nej" firstAttribute="top" secondItem="GXz-PP-90F" secondAttribute="top" constant="2" id="2So-1D-6nD"/>
+                        <constraint firstAttribute="trailing" secondItem="TmQ-xr-nej" secondAttribute="trailing" constant="6" id="7AW-AD-mkp"/>
+                        <constraint firstItem="xUE-30-wch" firstAttribute="leading" secondItem="GXz-PP-90F" secondAttribute="leading" constant="6" id="UDK-Qa-3M0"/>
+                        <constraint firstItem="TmQ-xr-nej" firstAttribute="leading" secondItem="xUE-30-wch" secondAttribute="trailing" constant="2" id="WEu-Vv-gdV"/>
+                        <constraint firstAttribute="bottom" secondItem="xUE-30-wch" secondAttribute="bottom" constant="6" id="Y7f-zQ-lQs"/>
+                        <constraint firstItem="xUE-30-wch" firstAttribute="top" secondItem="GXz-PP-90F" secondAttribute="top" constant="6" id="fJb-0I-Aew"/>
+                        <constraint firstAttribute="bottom" secondItem="TmQ-xr-nej" secondAttribute="bottom" constant="2" id="n1S-dO-uRx"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="GXz-PP-90F" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="7qt-wG-53e"/>
+                <constraint firstAttribute="trailing" secondItem="GXz-PP-90F" secondAttribute="trailing" id="88C-bE-w1l"/>
+                <constraint firstAttribute="bottom" secondItem="GXz-PP-90F" secondAttribute="bottom" id="DSb-Vr-73C"/>
+                <constraint firstItem="GXz-PP-90F" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="HeK-Gr-p4l"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-111.45038167938931" y="-255.98591549295776"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="badge" width="42.666667938232422" height="42.666667938232422"/>
+        <namedColor name="HighlightColor">
+            <color red="0.94901960784313721" green="0.792156862745098" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryColor">
+            <color red="0.13333333333333333" green="0.17254901960784313" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextColor">
+            <color red="0.6470588235294118" green="0.68627450980392157" blue="0.78823529411764703" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
