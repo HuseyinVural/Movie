@@ -9,14 +9,13 @@ import UIKit
 import StyleKit
 import LocalizationKit
 
-class SearchView: XibView {
+public class SearchView: XibView {
     @IBOutlet public weak var searchTextField: UITextField!
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         applyDefaultStyle()
     }
-    
     
     public func setAttributedPlaceholder(_ text: String, color: UIColor) {
         let attributes: [NSAttributedString.Key: Any] = [
