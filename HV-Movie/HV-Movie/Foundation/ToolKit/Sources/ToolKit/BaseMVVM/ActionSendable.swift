@@ -18,21 +18,11 @@ public protocol ActionSendable {
 
 public extension ActionSendable {
     func sendAction(_ action: ActionType) {
-        @Sendable
-        func execute() {
-            guard let observer else {
-                return
-            }
-            observer(action)
-        }
-        
         if Thread.isMainThread {
-            execute()
+            observer?(action)
         } else {
-            Task {
-                await MainActor.run {
-                    execute()
-                }
+            DispatchQueue.main.async {
+                observer?(action)
             }
         }
     }

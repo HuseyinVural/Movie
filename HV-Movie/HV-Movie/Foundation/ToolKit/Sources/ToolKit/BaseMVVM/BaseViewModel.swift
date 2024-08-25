@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol BaseViewModelable: LifeCycleObservable {
+public protocol BaseViewModelable: LifeCycleObservable, AnyObject {
     var baseAction: ((CommonActions) -> Void)? { get set }
 }
 
@@ -22,4 +22,14 @@ open class BaseViewModel: BaseViewModelable {
     open func viewWillAppear() {}
     
     public init() {}
+    
+    public func sendAction(_ action: CommonActions) {
+        if Thread.isMainThread {
+            baseAction?(action)
+        } else {
+            DispatchQueue.main.async {
+                self.baseAction?(action)
+            }
+        }
+    }
 }
