@@ -15,7 +15,8 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "StyleKit", path: "../StyleKit"),
-        .package(name: "LocalizationKit", path: "../LocalizationKit")
+        .package(name: "LocalizationKit", path: "../LocalizationKit"),
+        .package(name: "ToolKit", path: "../ToolKit")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -24,7 +25,8 @@ let package = Package(
             name: "UiComponents",
             dependencies: [
                 .product(name: "StyleKit", package: "StyleKit"),
-                .product(name: "LocalizationKit", package: "LocalizationKit")
+                .product(name: "LocalizationKit", package: "LocalizationKit"),
+                .product(name: "ToolKit", package: "ToolKit")
             ],
             resources: [
                 .process("Resources"),

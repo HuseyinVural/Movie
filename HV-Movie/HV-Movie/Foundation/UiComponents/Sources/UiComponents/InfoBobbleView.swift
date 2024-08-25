@@ -7,6 +7,7 @@
 
 import UIKit
 import StyleKit
+import ToolKit
 
 public class InfoBobbleView: XibView {
     @IBOutlet private weak var icon: UIImageView!
@@ -18,8 +19,7 @@ public class InfoBobbleView: XibView {
     }
     
     public func setInfoIconType(_ type: InfoType) {
-        icon.image = UIImage(named: type.image)
-        
+        icon.image = UIImage(moduleName: type.image, in: .module)
     }
     
     public enum InfoType {
