@@ -12,6 +12,7 @@ import Movies
 import MovieDetail
 
 class AppCoordinator: Coordinator {
+    weak var parent: Coordinator?
     var childCoordinators = [Coordinator]()
     let window: UIWindow
     var navigationController: UINavigationController?
@@ -24,10 +25,11 @@ class AppCoordinator: Coordinator {
     }
 
     func start() {
-        let moviesCoordinator = MoviesCoordinator(navigationController: navigationController)
-        moviesCoordinator.delegate = self
-        childCoordinators.append(moviesCoordinator)
-        moviesCoordinator.start()
+        let coordinator = MoviesCoordinator(navigationController: navigationController)
+        coordinator.delegate = self
+        coordinator.parent = self
+        childCoordinators.append(coordinator)
+        coordinator.start()
     }
 }
 
@@ -35,6 +37,7 @@ extension AppCoordinator: MoviesCoordinatorDelegate {
     func showMovieDetail(asset id: Int) {
         let coordinator = MovieDetailCoordinator(navigationController: navigationController)
         coordinator.delegate = self
+        coordinator.parent = self
         childCoordinators.append(coordinator)
         coordinator.start()
     }

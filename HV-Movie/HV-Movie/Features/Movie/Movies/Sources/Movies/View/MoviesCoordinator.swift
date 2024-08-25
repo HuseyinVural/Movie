@@ -19,6 +19,7 @@ public final class MoviesCoordinator: MoviesCoordinatable {
     // MARK: - Variables
     public var childCoordinators: [Coordinator] = []
     public weak var delegate: MoviesCoordinatorDelegate?
+    public weak var parent: Coordinator?
     public var navigationController: UINavigationController?
 
     public init(navigationController: UINavigationController?) {

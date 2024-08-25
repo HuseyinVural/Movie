@@ -15,6 +15,7 @@ public protocol MovieDetailCoordinatorDelegate: AnyObject {}
 public final class MovieDetailCoordinator: MovieDetailCoordinatable {
     // MARK: - Variables
     public var childCoordinators: [Coordinator] = []
+    public weak var parent: Coordinator?
     public weak var delegate: MovieDetailCoordinatorDelegate?
     public var navigationController: UINavigationController?
 

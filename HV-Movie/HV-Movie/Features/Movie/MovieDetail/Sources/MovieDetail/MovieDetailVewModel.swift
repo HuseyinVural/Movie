@@ -1,5 +1,5 @@
 //
-//  MovieDetailVewModel.swift
+//  MovieDetailViewModel.swift
 //
 //
 //  Created by Huseyin Vural on 25.08.2024.
@@ -28,5 +28,9 @@ final class MovieDetailViewModel: BaseViewModel, MovieDetailViewModelable {
         super.viewDidLoad()
         sendAction(.loading)
         sendAction(.setData)
+    }
+    
+    deinit {
+        coordinator?.didFinish()
     }
 }
