@@ -1,6 +1,6 @@
 //
-//  MoviesViewController.swift
-//  
+//  MovieDetailViewController.swift
+//
 //
 //  Created by Huseyin Vural on 25.08.2024.
 //
@@ -8,7 +8,7 @@
 import UIKit
 import ToolKit
 
-final class MoviesViewController<VM: MoviesViewModelable>: BaseXibViewController<VM> {
+final class MovieDetailViewController<VM: MovieDetailViewModelable>: BaseXibViewController<VM> {
     override func bindVieWModelObservers() {
         super.bindVieWModelObservers()
         
@@ -16,9 +16,10 @@ final class MoviesViewController<VM: MoviesViewModelable>: BaseXibViewController
             guard let self else { return }
             
             switch action {
-            case .refreshMoviesData:
-                print("Refresh all data \(self)")
+            case .setData:
+                print("Set data \(self)")
             }
         }
     }
 }
+

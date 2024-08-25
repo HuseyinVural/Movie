@@ -11,7 +11,7 @@ import ToolKit
 import Movies
 import MovieDetail
 
-class AppCoordinator: Coordinator {    
+class AppCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     let window: UIWindow
     var navigationController: UINavigationController?
@@ -33,6 +33,11 @@ class AppCoordinator: Coordinator {
 
 extension AppCoordinator: MoviesCoordinatorDelegate {
     func showMovieDetail(asset id: Int) {
-        #warning("Add navigation to detai")
+        let coordinator = MovieDetailCoordinator(navigationController: navigationController)
+        coordinator.delegate = self
+        childCoordinators.append(coordinator)
+        coordinator.start()
     }
 }
+
+extension AppCoordinator: MovieDetailCoordinatorDelegate {}

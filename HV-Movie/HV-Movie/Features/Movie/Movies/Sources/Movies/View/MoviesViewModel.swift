@@ -8,13 +8,13 @@
 import Foundation
 import ToolKit
 
-public enum MoviesPageActions {
+enum MoviesPageActions {
     case refreshMoviesData
 }
 
-public protocol MoviesViewModelable: BaseViewModelable, ActionSendable where ActionType == MoviesPageActions {}
+protocol MoviesViewModelable: BaseViewModelable, ActionSendable where ActionType == MoviesPageActions {}
 
-class MoviesViewModel: BaseViewModel, MoviesViewModelable {
+final class MoviesViewModel: BaseViewModel, MoviesViewModelable {
     typealias ActionType = MoviesPageActions
     var observer: ((MoviesPageActions) -> Void)?
     weak var coordinator : MoviesCoordinatable?
