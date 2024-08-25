@@ -8,6 +8,7 @@
 import UIKit
 import UiComponents
 import ToolKit
+import StyleKit
 
 final class MovieTableViewCell: UITableViewCell {
     @IBOutlet private weak var poster: UIImageView!
@@ -20,10 +21,13 @@ final class MovieTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        caption.font = DesignTypography.caption(weight: .medium)
+        overview.font = DesignTypography.body()
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        poster.image = nil
         poster.cancelImageLoad(from: displayItem?.imageURL)
     }
 

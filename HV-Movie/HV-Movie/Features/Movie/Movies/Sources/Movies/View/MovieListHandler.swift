@@ -13,19 +13,23 @@ protocol MovieListManageable: AnyObject {
 }
 
 protocol MovieListHandleable: UITableViewDelegate, UITableViewDataSource {
-    func updateMovies(_ movies: [MovieCellDisplayItem])
+    var store: MovieStoreable { get }
 }
 
 final class MovieListHandler: NSObject, UITableViewDataSource, UITableViewDelegate, MovieListHandleable {
-    private let store = MovieStore()
+    let store: MovieStoreable
     public weak var viewModel: MovieListManageable?
+    
+    init(store: MovieStoreable = MovieStore()) {
+        self.store = store
+    }
 
     func updateMovies(_ movies: [MovieCellDisplayItem]) {
         store.updateMovies(movies)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return store.movieCount()
+        return store.getMovies().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -31,6 +31,6 @@ public struct MovieResponseItem: Decodable {
     public let posterPath: String
     public let title: String
     public let overview: String
-    public let voteCount: Int
+    public let releaseDate: String
     public let voteAverage: Double
 }

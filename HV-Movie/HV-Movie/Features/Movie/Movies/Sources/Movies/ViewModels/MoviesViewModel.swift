@@ -21,17 +21,22 @@ final class MoviesViewModel: BaseViewModel, MoviesViewModelable {
     typealias ActionType = MoviesPageActions
     var observer: ((ActionType) -> Void)?
     weak var coordinator : MoviesCoordinatable?
-    let repository: MovieRepositoryable
-    let listHandler: MovieListHandleable
+    private let repository: MovieRepositoryable
+    private let listHandler: MovieListHandleable
+    private var page = Page(current: 1, total: 1)
+    private var isLoading = false
+    private var envManager: EnvManageable
     
     init(
         coordinator: MoviesCoordinatable?,
         repository: MovieRepositoryable,
-        listHandler: MovieListHandleable
+        listHandler: MovieListHandleable,
+        envManager: EnvManageable
     ) {
         self.coordinator = coordinator
         self.repository = repository
         self.listHandler = listHandler
+        self.envManager = envManager
         
         super.init()
     }
@@ -44,36 +49,52 @@ final class MoviesViewModel: BaseViewModel, MoviesViewModelable {
         fetchData()
     }
     
-    func fetchData() {
+    func fetchData(page: Int = 1) {
         Task {
-            guard let result = try? await execute(await self.repository.getPopularMovies(1)) else {
-                return
+            sendAction(.loading(isHidden: true))
+            defer {
+                isLoading = false
             }
             
-            listHandler.updateMovies(result.results.map({ item in
-                let urlString = "https://image.tmdb.org/t/p/w200/" + item.posterPath
-                let url = URL(string: urlString)
-                let rank = "9.9"
-                let date = "-/-"
-                
-                return .init(
-                    id: item.id,
-                    title: item.title,
-                    rank: rank,
-                    releaseDate: date,
-                    overview: item.overview,
-                    imageURL: url,
-                    moreTile: "More ➜"
-                )
-            }))
+            guard let result = try? await execute(await self.repository.getPopularMovies(page)) else {
+                return
+            }
+            parse(result)
+            
             sendAction(.reload)
+            sendAction(.loading(isHidden: true))
         }
+    }
+    
+    private func parse(_ response : PopularMoviesResponseItem) {
+        page.update(current: response.page, total: response.totalPages)
+
+        listHandler.store.updateMovies(response.results.map({ item in
+            return .init(
+                id: item.id,
+                title: item.title,
+                rank: String(format: "%.2f", item.voteAverage),
+                releaseDate: item.releaseDate.toReadableDate() ?? "-/-",
+                overview: item.overview,
+                imageURL: URL(string: envManager.current.cdnURLPrefix() + item.posterPath),
+                moreTile: "More ➜"
+            )
+        }))
+    }
+    
+    private func shouldLoadNextPage(at indexPath: IndexPath) -> Bool {
+        let itemCount = listHandler.store.getMovies().count
+        return indexPath.row == itemCount - 5 && page.hasMorePages && !isLoading
     }
 }
 
 extension MoviesViewModel: MovieListManageable {
     func didDisplayCell(at indexPath: IndexPath) {
-        #warning("Add pagination")
+        guard shouldLoadNextPage(at: indexPath) else {
+            return
+        }
+        
+        fetchData(page: page.current + 1)
     }
     
     func didSelectMovie(_ movie: MovieCellDisplayItem?) {

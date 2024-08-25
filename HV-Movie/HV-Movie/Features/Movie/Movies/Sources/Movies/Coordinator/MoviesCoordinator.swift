@@ -32,7 +32,8 @@ public final class MoviesCoordinator: MoviesCoordinatable {
         let viewModel = MoviesViewModel(
             coordinator: delegate,
             repository: DependencyContainer.shared.resolve(RepositoryContainer.self).movieRepository, 
-            listHandler: handler
+            listHandler: handler, 
+            envManager: DependencyContainer.shared.resolve(EnvManageable.self)
         )
         handler.viewModel = viewModel
         let moviesViewController = MoviesViewController(viewModel: viewModel, bundle: .module)

@@ -8,19 +8,25 @@
 import ToolKit
 import Foundation
 
-final class MovieStore {
+protocol MovieStoreable {
+    func updateMovies(_ newMovies: [MovieCellDisplayItem])
+    func getMovies() -> [MovieCellDisplayItem]
+    func movie(at index: Int) -> MovieCellDisplayItem?
+}
+
+final class MovieStore: MovieStoreable {
     private var movies: [MovieCellDisplayItem] = []
     private let queue = DispatchQueue(label: "list.movies.store", attributes: .concurrent)
     
     func updateMovies(_ newMovies: [MovieCellDisplayItem]) {
         queue.async(flags: .barrier) {
-            self.movies = newMovies
+            self.movies.append(contentsOf: newMovies)
         }
     }
     
-    func movieCount() -> Int {
+    func getMovies() -> [MovieCellDisplayItem] {
         return queue.sync {
-            return movies.count
+            return movies
         }
     }
     
