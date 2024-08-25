@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MoviesViewController" customModuleProvider="target">
             <connections>
+                <outlet property="list" destination="Sgt-Jl-dYa" id="smB-3g-x1w"/>
+                <outlet property="searchView" destination="yfw-j0-bq5" id="auZ-1d-88g"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,28 +22,71 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KBY-RJ-7nl">
-                    <rect key="frame" x="30" y="159" width="333" height="559"/>
-                    <color key="backgroundColor" systemColor="systemPinkColor"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KBY-RJ-7nl" userLabel="BackgroundContainer">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Sgt-Jl-dYa">
+                            <rect key="frame" x="0.0" y="86" width="393" height="732"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" name="PositiveColor"/>
+                            <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </tableView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GkE-X5-zsH" userLabel="SearchBarContainer">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="126"/>
+                            <subviews>
+                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yfw-j0-bq5" userLabel="SearchBar" customClass="SearchView" customModule="UiComponents">
+                                    <rect key="frame" x="24" y="69" width="345" height="52"/>
+                                    <color key="backgroundColor" name="SecondaryColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="52" id="cqi-CB-qmj"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" name="BackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="yfw-j0-bq5" secondAttribute="trailing" constant="24" id="I4e-Jt-PaB"/>
+                                <constraint firstItem="yfw-j0-bq5" firstAttribute="leading" secondItem="GkE-X5-zsH" secondAttribute="leading" constant="24" id="gOk-8b-dae"/>
+                                <constraint firstAttribute="bottom" secondItem="yfw-j0-bq5" secondAttribute="bottom" constant="5" id="kdX-P4-aY6"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" name="BackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Sgt-Jl-dYa" secondAttribute="trailing" id="Dfd-aq-j8w"/>
+                        <constraint firstAttribute="trailing" secondItem="GkE-X5-zsH" secondAttribute="trailing" id="Jrm-av-AT3"/>
+                        <constraint firstItem="Sgt-Jl-dYa" firstAttribute="leading" secondItem="KBY-RJ-7nl" secondAttribute="leading" id="MCh-qh-gI1"/>
+                        <constraint firstItem="GkE-X5-zsH" firstAttribute="top" secondItem="KBY-RJ-7nl" secondAttribute="top" id="si8-Mt-neb"/>
+                        <constraint firstItem="GkE-X5-zsH" firstAttribute="leading" secondItem="KBY-RJ-7nl" secondAttribute="leading" id="tZL-dK-kiJ"/>
+                    </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="KBY-RJ-7nl" secondAttribute="trailing" constant="30" id="0QS-B3-Y1J"/>
-                <constraint firstItem="KBY-RJ-7nl" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="0WC-C7-F7k"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="KBY-RJ-7nl" secondAttribute="bottom" constant="100" id="4cS-vo-fFa"/>
-                <constraint firstItem="KBY-RJ-7nl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="T5e-aW-eUH"/>
+                <constraint firstItem="KBY-RJ-7nl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4NS-BB-5jC"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="yfw-j0-bq5" secondAttribute="top" constant="-10" id="JZY-66-oFb"/>
+                <constraint firstItem="KBY-RJ-7nl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Kb0-RU-C6C"/>
+                <constraint firstAttribute="bottom" secondItem="KBY-RJ-7nl" secondAttribute="bottom" id="VFe-3O-qxh"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Sgt-Jl-dYa" secondAttribute="bottom" id="b34-x9-fHo"/>
+                <constraint firstItem="KBY-RJ-7nl" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="e6m-Fy-3vr"/>
+                <constraint firstItem="Sgt-Jl-dYa" firstAttribute="top" secondItem="GkE-X5-zsH" secondAttribute="bottom" constant="-40" id="oMl-kK-d9Y"/>
             </constraints>
-            <point key="canvasLocation" x="138" y="42"/>
+            <point key="canvasLocation" x="136.64122137404578" y="41.549295774647888"/>
         </view>
     </objects>
     <resources>
+        <namedColor name="BackgroundColor">
+            <color red="0.027450980392156862" green="0.050980392156862744" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PositiveColor">
+            <color red="0.44313725490196076" green="0.29803921568627451" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryColor">
+            <color red="0.13333333333333333" green="0.17254901960784313" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

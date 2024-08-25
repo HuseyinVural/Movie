@@ -8,6 +8,7 @@
 import Foundation
 import ToolKit
 import UIKit
+import Data
 
 public protocol MoviesCoordinatable: AnyObject, Coordinator {
     func showMovieDetail(asset id: Int)
@@ -27,7 +28,13 @@ public final class MoviesCoordinator: MoviesCoordinatable {
     }
 
     public func start() {
-        let viewModel = MoviesViewModel(coordinator: delegate)
+        let handler = MovieListHandler()
+        let viewModel = MoviesViewModel(
+            coordinator: delegate,
+            repository: DependencyContainer.shared.resolve(RepositoryContainer.self).movieRepository, 
+            listHandler: handler
+        )
+        handler.viewModel = viewModel
         let moviesViewController = MoviesViewController(viewModel: viewModel, bundle: .module)
         navigationController?.pushViewController(moviesViewController, animated: true)
     }

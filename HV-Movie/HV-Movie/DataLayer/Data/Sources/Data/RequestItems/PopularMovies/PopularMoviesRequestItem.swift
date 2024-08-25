@@ -21,5 +21,16 @@ struct PopularMoviesRequestItem: HTTPTask {
 }
 
 public struct PopularMoviesResponseItem: Decodable {
-    let page: Int
+    public let page: Int
+    public let totalPages: Int
+    public let results: [MovieResponseItem]
+}
+
+public struct MovieResponseItem: Decodable {
+    public let id: Int
+    public let posterPath: String
+    public let title: String
+    public let overview: String
+    public let voteCount: Int
+    public let voteAverage: Double
 }
