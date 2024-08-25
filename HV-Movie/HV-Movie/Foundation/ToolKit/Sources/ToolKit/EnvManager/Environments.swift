@@ -23,6 +23,10 @@ public enum Environments {
         }
     }
     
+    public func cdnURLPrefix() -> String {
+        return "https://image.tmdb.org/t/p/w200/"
+    }
+    
     public enum ApiVersion: String {
         case v3 = "3"
     }
