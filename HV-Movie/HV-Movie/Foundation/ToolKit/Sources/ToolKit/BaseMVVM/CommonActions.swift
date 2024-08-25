@@ -8,6 +8,6 @@
 import Foundation
 
 public enum CommonActions {
-    case loading
+    case loading(isHidden: Bool = true)
     case error(String)
 }

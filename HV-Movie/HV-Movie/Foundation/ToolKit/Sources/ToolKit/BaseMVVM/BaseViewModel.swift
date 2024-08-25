@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import LocalizationKit
 
 public protocol BaseViewModelable: LifeCycleObservable, AnyObject {
     var baseAction: ((CommonActions) -> Void)? { get set }
@@ -31,5 +32,22 @@ open class BaseViewModel: BaseViewModelable {
                 self.baseAction?(action)
             }
         }
+    }
+    
+    /// For reduce repeated use
+    open func execute<T>(_ function: @autoclosure @escaping () async throws -> T) async throws -> T {
+        do {
+            let result = try await function()
+            return result
+        } catch {
+            await handleError(error)
+            throw error
+        }
+    }
+
+    /// Error handling method that can be overridden from child
+    open func handleError(_ error: Error) async {
+        sendAction(.loading(isHidden: true))
+        sendAction(.error(Texts.General.error.localized))
     }
 }

@@ -12,11 +12,18 @@ let package = Package(
             name: "ToolKit",
             targets: ["ToolKit"]),
     ],
+    dependencies: [
+        .package(name: "LocalizationKit", path: "../LocalizationKit")
+    ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "ToolKit"),
+            name: "ToolKit",
+            dependencies: [
+                .product(name: "LocalizationKit", package: "LocalizationKit")
+            ]
+        ),
         .testTarget(
             name: "ToolKitTests",
             dependencies: ["ToolKit"]),

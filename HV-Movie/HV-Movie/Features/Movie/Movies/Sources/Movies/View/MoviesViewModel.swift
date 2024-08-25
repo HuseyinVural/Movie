@@ -26,7 +26,7 @@ final class MoviesViewModel: BaseViewModel, MoviesViewModelable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        sendAction(.loading)
+        sendAction(.loading(isHidden: false))
         sendAction(.refreshMoviesData)
     }
 }

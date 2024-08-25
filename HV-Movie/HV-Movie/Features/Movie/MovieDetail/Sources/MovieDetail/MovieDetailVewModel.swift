@@ -26,7 +26,7 @@ final class MovieDetailViewModel: BaseViewModel, MovieDetailViewModelable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        sendAction(.loading)
+        sendAction(.loading(isHidden: false))
         sendAction(.setData)
     }
     
