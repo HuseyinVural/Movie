@@ -76,11 +76,15 @@ public extension UIImageView {
     /// - Parameters:
     ///   - url: The URL of the image to load.
     ///   - placeholder: A placeholder image to display while the image is loading.
-    func setImage(from url: URL, placeholder: UIImage? = nil) {
+    func setImage(from url: URL?, placeholder: UIImage? = nil) {
         // Set placeholder image if provided
         self.image = placeholder
         let loader = DependencyContainer.shared.resolve(ImageLoaderProtocol.self)
-                
+         
+        guard let url else {
+            return
+        }
+        
         // Load the image from the URL
         loader.loadImage(from: url) { [weak self] image in
             guard let self = self else { return }
@@ -92,7 +96,11 @@ public extension UIImageView {
     
     /// Cancels the image load request for the given URL.
     /// - Parameter url: The URL of the image load task to cancel.
-    func cancelImageLoad(from url: URL) {
+    func cancelImageLoad(from url: URL?) {
+        guard let url else {
+            return
+        }
+        
         let loader = DependencyContainer.shared.resolve(ImageLoaderProtocol.self)
         loader.cancelImageLoad(from: url)
     }

@@ -22,6 +22,9 @@ let package = Package(
             name: "ToolKit",
             dependencies: [
                 .product(name: "LocalizationKit", package: "LocalizationKit")
+            ],
+            resources: [
+                .process("Resources")
             ]
         ),
         .testTarget(
