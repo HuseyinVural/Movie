@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     let dependencyManager = DependencyManager()
+    var appCoordinator: AppCoordinator?
 
     func application(
         _ application: UIApplication,
@@ -21,11 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         dependencyManager.registerDependencies()
 
-        let viewController = UIViewController()
-        viewController.view.backgroundColor = .red
-        
-        window?.rootViewController = viewController
-        window?.makeKeyAndVisible()
+        appCoordinator = AppCoordinator(window: window!)
+        appCoordinator?.start()
         
         return true
     }

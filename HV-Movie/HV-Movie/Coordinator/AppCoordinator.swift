@@ -7,16 +7,32 @@
 
 import Foundation
 import UIKit
+import ToolKit
+import Movies
+import MovieDetail
 
-class AppCoordinator: Coordinator {
+class AppCoordinator: Coordinator {    
     var childCoordinators = [Coordinator]()
     let window: UIWindow
-    let navigationController: UINavigationController
+    var navigationController: UINavigationController?
 
     init(window: UIWindow) {
         self.window = window
         self.navigationController = UINavigationController()
+        self.window.rootViewController = navigationController
+        self.window.makeKeyAndVisible()
     }
 
-    func start() {}
+    func start() {
+        let moviesCoordinator = MoviesCoordinator(navigationController: navigationController)
+        moviesCoordinator.delegate = self
+        childCoordinators.append(moviesCoordinator)
+        moviesCoordinator.start()
+    }
+}
+
+extension AppCoordinator: MoviesCoordinatorDelegate {
+    func showMovieDetail(asset id: Int) {
+        #warning("Add navigation to detai")
+    }
 }
