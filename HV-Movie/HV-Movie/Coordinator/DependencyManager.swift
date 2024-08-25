@@ -12,6 +12,7 @@ import Storage
 import NetworkInterface
 import StorageInterface
 import ToolKit
+import TrackingKit
 
 /// A utility class that manages the registration of dependencies within a dependency container.
 /// This class is designed to separate the implementation details of dependency injection
@@ -25,6 +26,7 @@ final class DependencyManager {
 
     func registerDependencies() {
         registerEnv()
+        registerLogger()
         registerImageLoader()
         registerNetworkService()
         registerKeyValueStorage()
@@ -33,6 +35,10 @@ final class DependencyManager {
 
     private func registerEnv() {
         container.register(EnvManageable.self, instance: EnvManager(current: .dev))
+    }
+    
+    private func registerLogger() {
+        container.register(ErrorLoggable.self, instance: Logger())
     }
     
     private func registerImageLoader() {
@@ -46,7 +52,7 @@ final class DependencyManager {
     private func registerKeyValueStorage() {
         container.register(KeyValueStorable.self, instance: KeyValueStorage(defaults: .standard))
     }
-
+    
     private func registerRepositoryContainer() {
         let networkService = container.resolve(NetworkProviderInterface.self)
         let storageService = container.resolve(KeyValueStorable.self)
