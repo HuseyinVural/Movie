@@ -37,7 +37,6 @@ open class BaseXibViewController<VM: BaseViewModelable>: UIViewController {
     
     open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     open func bindVieWModelObservers() {

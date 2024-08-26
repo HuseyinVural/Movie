@@ -24,7 +24,7 @@ public enum Environments {
     }
     
     public func cdnURLPrefix() -> String {
-        return "https://image.tmdb.org/t/p/w200/"
+        return "https://image.tmdb.org/t/p/"
     }
     
     public enum ApiVersion: String {

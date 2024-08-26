@@ -24,7 +24,7 @@ open class BaseViewModel: BaseViewModelable {
     /// Can add default operation
     open func viewWillAppear() {}
     
-    var logger: ErrorLoggable?
+    public var logger: ErrorLoggable?
     
     public init(logger: ErrorLoggable? = DependencyContainer.shared.resolve(ErrorLoggable.self)) {
         self.logger = logger
