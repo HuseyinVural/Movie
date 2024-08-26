@@ -7,6 +7,7 @@
 
 import ToolKit
 import Foundation
+import MVVMKit
 
 protocol MovieStoreable: AnyObject {
     var isFilterEnable: Bool { get set }

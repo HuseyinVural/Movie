@@ -7,6 +7,7 @@
 
 import UIKit
 import ToolKit
+import MVVMKit
 
 final class MovieDetailViewController<VM: MovieDetailViewModelable>: BaseXibViewController<VM> {
     override func bindVieWModelObservers() {

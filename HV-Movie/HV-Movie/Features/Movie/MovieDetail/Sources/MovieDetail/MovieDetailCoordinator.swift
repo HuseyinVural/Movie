@@ -7,6 +7,7 @@
 
 import ToolKit
 import UIKit
+import MVVMKit
 
 public protocol MovieDetailCoordinatable: AnyObject, Coordinator {}
 

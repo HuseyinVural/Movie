@@ -9,6 +9,7 @@ import XCTest
 @testable import Movies
 import Data
 import ToolKit
+import MVVMKit
 
 final class MoviesViewModelTests: XCTestCase {
     private var viewModel: MoviesViewModel!

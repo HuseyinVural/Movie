@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import Movies
+import MVVMKit
 
 final class MovieStoreTests: XCTestCase {
 

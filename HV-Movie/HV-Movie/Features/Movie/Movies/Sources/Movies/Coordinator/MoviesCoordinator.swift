@@ -5,10 +5,11 @@
 //  Created by Huseyin Vural on 25.08.2024.
 //
 
+import UIKit
 import Foundation
 import ToolKit
-import UIKit
 import Data
+import MVVMKit
 
 public protocol MoviesCoordinatable: AnyObject, Coordinator {
     func showMovieDetail(asset id: Int)

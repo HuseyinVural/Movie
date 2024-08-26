@@ -9,6 +9,7 @@ import Foundation
 import ToolKit
 import Data
 import LocalizationKit
+import MVVMKit
 
 enum MoviesPageActions {
     case bindList(MovieListHandleable)

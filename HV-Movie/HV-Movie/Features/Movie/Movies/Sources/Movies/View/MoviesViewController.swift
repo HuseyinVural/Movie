@@ -8,6 +8,7 @@
 import UIKit
 import ToolKit
 import UiComponents
+import MVVMKit
 
 final class MoviesViewController<VM: MoviesViewModelable>: BaseXibViewController<VM>, UITextFieldDelegate {
     @IBOutlet private weak var list: UITableView!

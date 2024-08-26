@@ -10,6 +10,7 @@ import UIKit
 import ToolKit
 import Movies
 import MovieDetail
+import MVVMKit
 
 class AppCoordinator: Coordinator {
     weak var parent: Coordinator?

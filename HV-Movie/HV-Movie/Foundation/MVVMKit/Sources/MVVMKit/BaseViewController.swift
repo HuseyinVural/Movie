@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by Huseyin Vural on 25.08.2024.
 //

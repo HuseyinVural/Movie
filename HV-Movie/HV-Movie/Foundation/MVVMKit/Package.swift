@@ -4,32 +4,28 @@
 import PackageDescription
 
 let package = Package(
-    name: "MovieDetail",
+    name: "MVVMKit",
     platforms: [.iOS(.v13)],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "MovieDetail",
-            targets: ["MovieDetail"]),
+            name: "MVVMKit",
+            targets: ["MVVMKit"]),
     ],
     dependencies: [
-        .package(name: "ToolKit", path: "../../Foundation/ToolKit"),
-        .package(name: "MVVMKit", path: "../../Foundation/MVVMKit")
+        .package(name: "LocalizationKit", path: "../LocalizationKit")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "MovieDetail", dependencies: [
-                .product(name: "ToolKit", package: "ToolKit"),
-                .product(name: "MVVMKit", package: "MVVMKit")
-            ],
-            resources: [
-                .process("Resources")
+            name: "MVVMKit",
+            dependencies: [
+                .product(name: "LocalizationKit", package: "LocalizationKit")
             ]
         ),
         .testTarget(
-            name: "MovieDetailTests",
-            dependencies: ["MovieDetail"]),
+            name: "MVVMKitTests",
+            dependencies: ["MVVMKit"]),
     ]
 )

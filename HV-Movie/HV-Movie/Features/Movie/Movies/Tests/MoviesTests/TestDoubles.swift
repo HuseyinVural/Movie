@@ -10,6 +10,7 @@ import XCTest
 @testable import Movies
 import Data
 import ToolKit
+import MVVMKit
 
 
 class MockMovieRepository: MovieRepositoryable {
