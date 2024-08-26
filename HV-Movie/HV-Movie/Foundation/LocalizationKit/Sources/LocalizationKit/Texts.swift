@@ -17,6 +17,8 @@ public enum Texts {
         
         case error = "error.message"
         case loading = "loading.message"
+        case detail = "detail"
+        case more = "more"
     }
 }
 

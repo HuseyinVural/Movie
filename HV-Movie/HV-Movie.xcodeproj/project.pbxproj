@@ -110,8 +110,8 @@
 				E0A76C672C79AEFD008DB82E /* AppDelegate.swift */,
 				E0A76C702C79AEFF008DB82E /* Assets.xcassets */,
 				E057C71A2C79BDDF00400192 /* Coordinator */,
-				E0A76C7B2C79B010008DB82E /* DataLayer */,
 				E0A76C832C79B47B008DB82E /* Foundation */,
+				E0A76C7B2C79B010008DB82E /* DataLayer */,
 				E0A76C8A2C79BA9D008DB82E /* Features */,
 				E0A76C722C79AEFF008DB82E /* LaunchScreen.storyboard */,
 			);

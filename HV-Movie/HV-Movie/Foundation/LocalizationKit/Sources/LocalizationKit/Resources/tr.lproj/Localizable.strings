@@ -8,3 +8,5 @@
 
 "error.message" = "Bir şeyler ters gitti";
 "loading.message" = "Yükleniyor...";
+"detail" = "Detay";
+"more" = "Daha fazla"
