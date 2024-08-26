@@ -51,7 +51,6 @@ final class MoviesViewModel: BaseViewModel, MoviesViewModelable {
         super.viewDidLoad()
         sendAction(.bindList(listHandler))
         sendAction(.reload)
-        sendAction(.loading(isHidden: false))
         fetchData()
     }
     
@@ -71,7 +70,7 @@ final class MoviesViewModel: BaseViewModel, MoviesViewModelable {
     
     private func fetchData(page: Int = 1) {
         Task {
-            sendAction(.loading(isHidden: true))
+            sendAction(.loading(isHidden: false))
             defer {
                 isLoading = false
             }

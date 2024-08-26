@@ -11,6 +11,12 @@ import Foundation
 open class BaseXibViewController<VM: BaseViewModelable>: UIViewController {
     public var viewModel: VM
     
+    private let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
+    
     public init(viewModel: VM, nibName: String? = nil, bundle: Bundle? = nil) {
         self.viewModel = viewModel
         let nibName = nibName ?? String(describing: type(of: self)).components(separatedBy: "<").first!
@@ -27,6 +33,7 @@ open class BaseXibViewController<VM: BaseViewModelable>: UIViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.viewDidLoad()
+        setupActivityIndicator()
     }
     
     open override func viewWillAppear(_ animated: Bool) {
@@ -47,12 +54,22 @@ open class BaseXibViewController<VM: BaseViewModelable>: UIViewController {
     
     private func handleBaseAction(_ action: CommonActions) {
         switch action {
-        case .loading:
-            #warning("Add Loading")
-        case .error(let message):
-            #warning("Add Error Presentation")
+        case .loading(let isHidden):
+            isHidden ? activityIndicator.stopAnimating() : activityIndicator.startAnimating()
+            view.bringSubviewToFront(activityIndicator)
+        case .error: break
+            /// This has not been added, I'm leaving it open in case it is added in the future.
         case .closeKeyboard:
             view.endEditing(true)
         }
+    }
+    
+    private func setupActivityIndicator() {
+        view.addSubview(activityIndicator)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
     }
 }
