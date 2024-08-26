@@ -10,6 +10,7 @@ import XCTest
 import Data
 import ToolKit
 import MVVMKit
+import TrackingKit
 
 final class MoviesViewModelTests: XCTestCase {
     private var viewModel: MoviesViewModel!
@@ -21,6 +22,8 @@ final class MoviesViewModelTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
+        DependencyContainer.shared.register(ErrorLoggable.self, instance: Logger())
+        
         mockRepository = MockMovieRepository()
         mockCoordinator = MockMoviesCoordinator()
         mockListHandler = MockMovieListHandler()

@@ -68,7 +68,7 @@ final class MoviesViewModel: BaseViewModel, MoviesViewModelable {
         sendAction(.closeKeyboard)
     }
     
-    private func fetchData(page: Int = 1) {
+    func fetchData(page: Int = 1) {
         Task {
             sendAction(.loading(isHidden: false))
             defer {

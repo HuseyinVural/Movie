@@ -1,0 +1,94 @@
+{
+  "configurations" : [
+    {
+      "id" : "9648A7E0-D78A-49BA-A202-CABB1393DCC7",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:HV-Movie\/DataLayer\/Data",
+        "identifier" : "DataTests",
+        "name" : "DataTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:HV-Movie\/Foundation\/LocalizationKit",
+        "identifier" : "LocalizationKitTests",
+        "name" : "LocalizationKitTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:HV-Movie\/Features\/Movie\/MovieDetail",
+        "identifier" : "MovieDetailTests",
+        "name" : "MovieDetailTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:HV-Movie\/Features\/Movie\/Movies",
+        "identifier" : "MoviesTests",
+        "name" : "MoviesTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:HV-Movie\/Foundation\/MVVMKit",
+        "identifier" : "MVVMKitTests",
+        "name" : "MVVMKitTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:HV-Movie\/DataLayer\/Network",
+        "identifier" : "NetworkTests",
+        "name" : "NetworkTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:HV-Movie\/DataLayer\/Storage",
+        "identifier" : "StorageTests",
+        "name" : "StorageTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:HV-Movie\/Foundation\/StyleKit",
+        "identifier" : "StyleKitTests",
+        "name" : "StyleKitTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:HV-Movie\/Foundation\/ToolKit",
+        "identifier" : "ToolKitTests",
+        "name" : "ToolKitTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:HV-Movie\/Foundation\/TrackingKit",
+        "identifier" : "TrackingKitTests",
+        "name" : "TrackingKitTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:HV-Movie\/Foundation\/UiComponents",
+        "identifier" : "UiComponentsTests",
+        "name" : "UiComponentsTests"
+      }
+    }
+  ],
+  "version" : 1
+}

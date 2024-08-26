@@ -29,7 +29,7 @@ final class MovieRepositoryTests: XCTestCase {
     
     func testGetPopularMovies_WhenCalledWithPageParameter_UsesNetworkProviderAndReturnsResponse() async throws {
         // Arrange
-        let expectedResponse = PopularMoviesResponseItem(page: 1)
+        let expectedResponse = PopularMoviesResponseItem(page: 4, totalPages: 2, results: [])
         sut.result = .success(expectedResponse)
         
         // Act
@@ -55,14 +55,14 @@ final class MovieRepositoryTests: XCTestCase {
     
     func testGetMovieDetail_WhenCalledWithIDParameter_UsesNetworkProviderAndReturnsResponse() async throws {
         // Arrange
-        let expectedResponse = MovieDetailResponseItem(posterPath: "some_path")
+        let expectedResponse = MovieDetailResponseItem(id: 1, title: "", voteAverage: 1, overview: "", originCountry: [], releaseDate: "", genres: [], backdropPath: "", tagline: "")
         sut.result = .success(expectedResponse)
         
         // Act
         let response = try await repository.getMovieDetail(asset: 123)
         
         // Assert
-        XCTAssertEqual(response.posterPath, expectedResponse.posterPath)
+        XCTAssertEqual(response.id, expectedResponse.id)
     }
     
     func testSetFavoriteMovie_WhenCalled_AddsMovieToInMemoryCache() throws {

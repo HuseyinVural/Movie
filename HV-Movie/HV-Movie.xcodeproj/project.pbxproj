@@ -46,6 +46,7 @@
 		E0F694F42C7BFCC100D7CAA3 /* MVVMKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MVVMKit; sourceTree = "<group>"; };
 		E0F694F92C7C055300D7CAA3 /* TrackingKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TrackingKit; sourceTree = "<group>"; };
 		E0F694FA2C7C059800D7CAA3 /* ToolKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ToolKit; sourceTree = "<group>"; };
+		E0F6951B2C7C3A1E00D7CAA3 /* AllBundle.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = AllBundle.xctestplan; path = "HV-Movie/AllBundle.xctestplan"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +90,7 @@
 		E0A76C5B2C79AEFD008DB82E = {
 			isa = PBXGroup;
 			children = (
+				E0F6951B2C7C3A1E00D7CAA3 /* AllBundle.xctestplan */,
 				E0A76C662C79AEFD008DB82E /* HV-Movie */,
 				E0A76C652C79AEFD008DB82E /* Products */,
 				E057C7212C7A0EC900400192 /* Frameworks */,
