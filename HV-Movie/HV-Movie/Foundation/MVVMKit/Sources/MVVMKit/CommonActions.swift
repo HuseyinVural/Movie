@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Action is shared on huge part of base controllers
 public enum CommonActions {
     case loading(isHidden: Bool = true)
     case error(String)

@@ -9,6 +9,7 @@ import UIKit
 import Data
 import ToolKit
 
+// I used UISceneDelegate because I started target with iOS 12 before, I actually prefer it.
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

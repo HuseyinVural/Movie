@@ -8,6 +8,13 @@
 import Foundation
 import UIKit
 
+/// `ActionSendable` is a protocol designed to standardize event communication between layers via an enum.
+/// It ensures that actions are dispatched on the main thread, preserving UI thread safety and order.
+///
+/// - associatedtype ActionType: The type of actions that can be sent.
+/// - observer: A closure that handles the action.
+/// - sendAction(_ action: ActionType): Sends the action to the observer, ensuring it runs on the main thread.
+
 public protocol ActionSendable {
     associatedtype ActionType
     
