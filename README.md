@@ -1,3 +1,25 @@
+# HV-Movie - README
+
+## Overview
+This project was developed under tight deadlines, focusing on essential architecture design and functionality. Due to time constraints, some tests and implementations were limited, but the architecture remains open for future enhancement. The target selection (iOS 13+) was made with approval, and the project adheres to a modular design following SOLID principles.
+
+## Structure
+- **Main Target**: Triggers core coordinator processes.
+- **Foundation**: Core modules (`TrackingKit`, `MVVMKit`, `UiComponents`, etc.) communicate internally.
+- **Data Layer**: Manages data flow and provides repositories and entities.
+- **Features**: Modules like `MovieDetail` and `Movies` are managed through the coordinator.
+
+## Key Points
+- **Architecture**: MVVM with iOS 13+ support, core tools in `MVVMKit`.
+- **Testing**: Unit tests for core modules; UI tests were planned but not implemented.
+- **Token**: Hardcoded due to time constraints—secure storage recommended in the future.
+
+## Development
+Built with **Xcode 15.4** targeting **iOS 13** and later.
+Test API key is stored HTTPTask+Defaults.
+
+
+
 # Movie Case
 
 ## You are asked to create a simple movie listing application.
