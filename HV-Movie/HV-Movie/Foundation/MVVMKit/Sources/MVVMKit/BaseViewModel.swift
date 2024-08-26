@@ -7,6 +7,8 @@
 
 import Foundation
 import LocalizationKit
+import TrackingKit
+import ToolKit
 
 public protocol BaseViewModelable: LifeCycleObservable, AnyObject {
     var baseAction: ((CommonActions) -> Void)? { get set }
@@ -22,7 +24,11 @@ open class BaseViewModel: BaseViewModelable {
     /// Can add default operation
     open func viewWillAppear() {}
     
-    public init() {}
+    var logger: ErrorLoggable?
+    
+    public init(logger: ErrorLoggable? = DependencyContainer.shared.resolve(ErrorLoggable.self)) {
+        self.logger = logger
+    }
     
     public func sendAction(_ action: CommonActions) {
         if Thread.isMainThread {
@@ -49,5 +55,6 @@ open class BaseViewModel: BaseViewModelable {
     open func handleError(_ error: Error) async {
         sendAction(.loading(isHidden: true))
         sendAction(.error(Texts.General.error.localized))
+        logger?.log(error, with: [:])
     }
 }

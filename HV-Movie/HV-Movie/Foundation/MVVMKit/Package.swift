@@ -13,7 +13,10 @@ let package = Package(
             targets: ["MVVMKit"]),
     ],
     dependencies: [
-        .package(name: "LocalizationKit", path: "../LocalizationKit")
+        .package(name: "LocalizationKit", path: "../LocalizationKit"),
+        .package(name: "ToolKit", path: "../ToolKit"),
+        .package(name: "TrackingKit", path: "../TrackingKit")
+
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -21,7 +24,9 @@ let package = Package(
         .target(
             name: "MVVMKit",
             dependencies: [
-                .product(name: "LocalizationKit", package: "LocalizationKit")
+                .product(name: "LocalizationKit", package: "LocalizationKit"),
+                .product(name: "ToolKit", package: "ToolKit"),
+                .product(name: "TrackingKit", package: "TrackingKit")
             ]
         ),
         .testTarget(
