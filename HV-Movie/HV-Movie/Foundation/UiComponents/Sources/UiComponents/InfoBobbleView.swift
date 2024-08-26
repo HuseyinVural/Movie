@@ -25,6 +25,7 @@ public class InfoBobbleView: XibView {
     public enum InfoType {
         case rank
         case date
+        case vote
         
         var image: String {
             switch self {
@@ -32,6 +33,8 @@ public class InfoBobbleView: XibView {
                 return "badge"
             case .date:
                 return "clock"
+            case .vote:
+                return "vote"
             }
         }
     }

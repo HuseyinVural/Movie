@@ -13,7 +13,7 @@ struct MovieDetailDisplayItem {
     let subtitle: String
     let rank: String
     let releaseDate: String
-    let country: String
+    let voteCount: String
     let overview: String
     let tagline: String
     let imageURL: URL?

@@ -23,11 +23,11 @@ public struct MovieDetailResponseItem: Decodable {
     public let title: String
     public let voteAverage: Double
     public let overview: String
-    public let originCountry: [String]
     public let releaseDate: String
     public let genres: [Genre]
     public let backdropPath: String
     public let tagline: String
+    public let voteCount: Int
 }
 
 public struct Genre: Decodable {

@@ -98,7 +98,7 @@ final class MovieDetailViewModel: BaseViewModel, MovieDetailViewModelable {
             subtitle: item.genres.map({ $0.name }).joined(separator: ", "),
             rank: String(format: "%.2f", item.voteAverage),
             releaseDate: item.releaseDate.toReadableDate() ?? "-/-",
-            country: item.originCountry.first ?? "",
+            voteCount: String(item.voteCount),
             overview: item.overview,
             tagline: item.tagline,
             imageURL: URL(string: envManager.current.cdnURLPrefix() + "w780/" + item.backdropPath)

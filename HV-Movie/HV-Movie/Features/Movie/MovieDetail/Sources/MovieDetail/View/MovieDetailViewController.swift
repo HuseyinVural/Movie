@@ -21,7 +21,7 @@ final class MovieDetailViewController<VM: MovieDetailViewModelable>: BaseXibView
     @IBOutlet private weak var categories: UILabel!
     @IBOutlet private weak var rank: InfoBobbleView!
     @IBOutlet private weak var date: InfoBobbleView!
-    @IBOutlet private weak var country: InfoBobbleView!
+    @IBOutlet private weak var voteCount: InfoBobbleView!
     @IBOutlet private weak var overview: UITextView!
     
     override func bindVieWModelObservers() {
@@ -34,12 +34,12 @@ final class MovieDetailViewController<VM: MovieDetailViewModelable>: BaseXibView
             case .bindButtons:
                 popButton.icon.image = UIImage(moduleName: "leftArrow", in: .module)
                 favoriteButton.icon.image = UIImage(moduleName: "star", in: .module)
-                
                 favoriteButton.actionButton.addTarget(self, action: #selector(didTapFavButton), for: .touchUpInside)
                 popButton.actionButton.addTarget(self, action: #selector(didTapPopButton), for: .touchUpInside)
-
+            
                 rank.setInfoIconType(.rank)
                 date.setInfoIconType(.date)
+                voteCount.setInfoIconType(.vote)
             case .setDetail(let item):
                 poster.setImage(from: item.imageURL)
                 spotLabel.text = item.tagline
@@ -47,7 +47,7 @@ final class MovieDetailViewController<VM: MovieDetailViewModelable>: BaseXibView
                 categories.text = item.subtitle
                 rank.title.text = item.rank
                 date.title.text = item.releaseDate
-                country.title.text = item.country
+                voteCount.title.text = item.voteCount
                 overview.text = item.overview
             case .setFavoriteStatus(let isFavorite):
                 favoriteButton.icon.tintColor = isFavorite ? DesignColors.highligh : DesignColors.focus

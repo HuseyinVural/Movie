@@ -55,7 +55,7 @@ final class MovieRepositoryTests: XCTestCase {
     
     func testGetMovieDetail_WhenCalledWithIDParameter_UsesNetworkProviderAndReturnsResponse() async throws {
         // Arrange
-        let expectedResponse = MovieDetailResponseItem(id: 1, title: "", voteAverage: 1, overview: "", originCountry: [], releaseDate: "", genres: [], backdropPath: "", tagline: "")
+        let expectedResponse = MovieDetailResponseItem(id: 1, title: "", voteAverage: 1, overview: "", releaseDate: "", genres: [], backdropPath: "", tagline: "", voteCount: 0)
         sut.result = .success(expectedResponse)
         
         // Act
