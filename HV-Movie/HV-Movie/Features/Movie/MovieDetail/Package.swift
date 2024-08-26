@@ -14,7 +14,10 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "ToolKit", path: "../../Foundation/ToolKit"),
-        .package(name: "MVVMKit", path: "../../Foundation/MVVMKit")
+        .package(name: "Data", path: "../../Data"),
+        .package(name: "StyleKit", path: "../../Foundation/StyleKit"),
+        .package(name: "UiComponents", path: "../../Foundation/UiComponents"),
+        .package(name: "MVVMKit", path: "../../Foundation/MVVMKit"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -22,6 +25,9 @@ let package = Package(
         .target(
             name: "MovieDetail", dependencies: [
                 .product(name: "ToolKit", package: "ToolKit"),
+                .product(name: "Data", package: "Data"),
+                .product(name: "StyleKit", package: "StyleKit"),
+                .product(name: "UiComponents", package: "UiComponents"),
                 .product(name: "MVVMKit", package: "MVVMKit")
             ],
             resources: [

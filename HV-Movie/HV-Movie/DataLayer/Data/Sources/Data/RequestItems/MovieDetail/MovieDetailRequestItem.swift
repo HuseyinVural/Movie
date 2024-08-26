@@ -19,5 +19,18 @@ struct MovieDetailRequestItem: HTTPTask {
 }
 
 public struct MovieDetailResponseItem: Decodable {
-    let posterPath: String
+    public let id: Int
+    public let title: String
+    public let voteAverage: Double
+    public let overview: String
+    public let originCountry: [String]
+    public let releaseDate: String
+    public let genres: [Genre]
+    public let backdropPath: String
+    public let tagline: String
+}
+
+public struct Genre: Decodable {
+    public let id: Int
+    public let name: String
 }

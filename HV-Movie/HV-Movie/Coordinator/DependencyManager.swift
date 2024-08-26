@@ -56,7 +56,8 @@ final class DependencyManager {
     private func registerRepositoryContainer() {
         let networkService = container.resolve(NetworkProviderInterface.self)
         let storageService = container.resolve(KeyValueStorable.self)
-        let instance =  RepositoryContainer(networkService, storage: storageService)
+        let instance = RepositoryContainer(networkService, storage: storageService)
+        instance.movieRepository.fetchAllFavoriteFromStorage()
         container.register(RepositoryContainer.self, instance: instance)
     }
 }

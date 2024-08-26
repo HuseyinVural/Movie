@@ -26,6 +26,7 @@ final class MoviesViewModel: BaseViewModel, MoviesViewModelable {
     typealias ActionType = MoviesPageActions
     var observer: ((ActionType) -> Void)?
     weak var coordinator : MoviesCoordinatable?
+    
     private let repository: MovieRepositoryable
     private let listHandler: MovieListHandleable
     private var page = Page(current: 1, total: 1)
@@ -68,7 +69,7 @@ final class MoviesViewModel: BaseViewModel, MoviesViewModelable {
         sendAction(.closeKeyboard)
     }
     
-    func fetchData(page: Int = 1) {
+    private func fetchData(page: Int = 1) {
         Task {
             sendAction(.loading(isHidden: true))
             defer {
@@ -95,8 +96,8 @@ final class MoviesViewModel: BaseViewModel, MoviesViewModelable {
                 rank: String(format: "%.2f", item.voteAverage),
                 releaseDate: item.releaseDate.toReadableDate() ?? "-/-",
                 overview: item.overview,
-                imageURL: URL(string: envManager.current.cdnURLPrefix() + item.posterPath),
-                moreTile: "More ➜"
+                imageURL: URL(string: envManager.current.cdnURLPrefix() + "w185/" + item.posterPath),
+                moreTile: "\(Texts.General.more.localized) ➜"
             )
         }))
     }

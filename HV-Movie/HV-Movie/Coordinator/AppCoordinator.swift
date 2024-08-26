@@ -36,7 +36,7 @@ class AppCoordinator: Coordinator {
 
 extension AppCoordinator: MoviesCoordinatorDelegate {
     func showMovieDetail(asset id: Int) {
-        let coordinator = MovieDetailCoordinator(navigationController: navigationController)
+        let coordinator = MovieDetailCoordinator(navigationController: navigationController, assetId: id)
         coordinator.delegate = self
         coordinator.parent = self
         childCoordinators.append(coordinator)
